@@ -135,9 +135,17 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     public void getMess(ArrayList<Data.BodyBean.ResultBean> da) {
         list.addAll(da);
         list1 = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            HomeFragment  fragment = new HomeFragment();
-            list1.add(fragment);
+        HomeFragment homeFragment = new HomeFragment();
+        HomeFragment2 homeFragment2 = new HomeFragment2();
+        HomeFragment3 homeFragment3 = new HomeFragment3();
+        if (da.size()==2){
+            list1.add(homeFragment);
+            list1.add(homeFragment2);
+        }
+        if (da.size()==3){
+            list1.add(homeFragment);
+            list1.add(homeFragment2);
+            list1.add(homeFragment3);
         }
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), list1, da);
         mVp.setAdapter(adapter);
